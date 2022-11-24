@@ -14,19 +14,52 @@
   <nav> </nav>
   <header>
     <h1>Pokedex App</h1>
+    <p> enter a pokemon name</p>
   </header>
 
   <div class="card">
-    <ul class="pokemon-list" id="pokex">
-      <li></li>
-      <li></li>
-    </ul>
-    <button onclick="getEndpoint()">
+    <textarea class="
+        form-control
+        w-full
+        px-3
+        py-3
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border-2 border-dotted border-blue-200 shadow-md
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-gray-300 focus:outline-none
+      " rows="15" id="pokex"> </textarea>
+
+
+    <button onclick="fetchPokemon()">
       Button
     </button>
 
     <!-- Javascript-->
     <script src="main.js"></script>
+  </div>
+  <div>
+    <textarea class="
+        form-control
+        w-full
+        px-3
+        py-3
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border-2 border-dotted border-blue-200 shadow-md
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-gray-300 focus:outline-none
+      " rows="15" id="showpoke"></textarea>
   </div>
 
 </body>
