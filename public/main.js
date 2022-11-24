@@ -1,23 +1,28 @@
-// function getEndpoint() {
-//   const pokex = document.getElementById("pokex");
-// }
-
-function displayBackend(backendData) {
-  const pokex = document.getElementById("pokex");
-  pokex.innerHTML = backendData;
-  console.log(backendData);
-}
-
 function fetchPokemon() {
   fetch("https://pokeapi.co/api/v2/pokemon?limit=3")
     .then((response) => response.json())
-    .then((allpokemon) => console.log(allpokemon));
+    .then(function (allpokemon) {
+      allpokemon.results.forEach(function (pokemon) {
+        fetchPokemonData(pokemon);
+      });
+    });
 }
 
-// // endpoints get pokemon data
-// function getPokemons() {
-//   const pokemons = fetch("https://pokeapi.co/api/v2/pokemon?limit=100");
-//   return pokemons;
-// }
+function fetchPokemonData(pokemon) {
+  let url = pokemon.url;
+  fetch(url)
+    .then((response) => response.json())
+    .then(function (pokeData) {
+      console.log(pokeData);
+    });
+}
 
-// getPokemons();
+function showPokemons() {
+  const show = document.getElementById("showpoke");
+  show.value = "Show Pokemon";
+  show.addEventListener("click", function () {
+    fetchPokemon();
+  });
+}
+
+showPokemons();
